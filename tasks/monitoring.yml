@@ -1,0 +1,29 @@
+---
+- name: Upload Config | monit | openssh
+  template:
+    src: etc/monit/conf.d/openssh
+    dest: /etc/monit/conf.d/openssh
+  notify: Reload Service | monit
+  tags:
+    - monit
+
+- name: Trigger All Callbacks
+  meta: flush_handlers
+
+- name: Configure | openssh | pidfile
+  lineinfile:
+    state: present
+    dest: /etc/ssh/sshd_config
+    regexp: '^#* *PidFile '
+    line: "PidFile {{ openssh_pidfile_path }}"
+  notify: Reload Service | openssh
+  tags:
+    - pidfile
+    - service
+
+- name: Confirm Monitoring | openssh
+  monit:
+    state: present
+    name: openssh
+  tags:
+    - monit
