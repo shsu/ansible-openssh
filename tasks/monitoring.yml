@@ -33,6 +33,11 @@
     - pidfile
     - service
 
+- name: Bounce sshd to write new pidfile.
+  service:
+    state: restarted
+    name: ssh
+
 - name: Confirm Monitoring | openssh
   monit:
     state: present
