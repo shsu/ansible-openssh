@@ -8,7 +8,7 @@
   tags:
     - monit
 
-- name: Reload Service | ssh
+- name: Reload Service | openssh
   monit:
     state: restarted
     name: openssh
