@@ -2,5 +2,5 @@
 openssh_server: no
 openssh_client: no
 
-openssh_runtime_data_root: /var/run/openssh
-openssh_pidfile_path: "{{ openssh_runtime_data_root }}/sshd.pid"
+openssh_runtime_root: "{{ runtime_root }}/openssh"
+openssh_pidfile_path: "{{ openssh_runtime_root }}/sshd.pid"

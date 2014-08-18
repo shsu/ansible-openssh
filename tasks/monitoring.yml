@@ -10,10 +10,10 @@
 - name: Trigger All Callbacks
   meta: flush_handlers
 
-- name: "Directory Exists | {{ openssh_runtime_data_root }}"
+- name: "Directory Exists | {{ openssh_runtime_root }}"
   file:
     state: directory
-    path: "{{ openssh_runtime_data_root }}"
+    path: "{{ openssh_runtime_root }}"
     owner: root
     group: root
     mode: 0755
