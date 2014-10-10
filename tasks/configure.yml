@@ -1,0 +1,9 @@
+---
+- name: Configure | SSH | Port
+  lineinfile:
+    state: present
+    dest: /etc/ssh/sshd_config
+    regexp: "^Port {{ item }}"
+    line: "Port {{ item }}"
+  with_items: openssh_ports
+  notify: Reload Service | SSH
