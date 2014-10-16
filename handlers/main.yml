@@ -2,11 +2,11 @@
 - name: Reload Service | monit
   command: monit reload
   tags:
-    - monit
+    - using-monit
 
 - name: Reload Service | openssh
   monit:
     state: restarted
     name: openssh
   tags:
-    - monit
+    - using-monit
