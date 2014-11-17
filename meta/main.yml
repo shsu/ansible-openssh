@@ -6,5 +6,5 @@ dependencies:
   - role: meta/monitor
     monitor_name: openssh
     monitor_pidfile: "{{ openssh_pidfile_path }}"
-    monitor_start_command:/usr/sbin/service ssh start
+    monitor_start_command: /usr/sbin/service ssh start
     monitor_stop_command: /usr/sbin/service ssh stop
