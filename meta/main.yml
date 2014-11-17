@@ -3,3 +3,6 @@ dependencies:
   - role: meta/repository
     repository_key: '0xf753d4810762518e'
     repository_url: 'deb http://ppa.launchpad.net/w-rouesnel/openssh-hpn/ubuntu trusty main'
+  - role: meta/monitor
+    monitor_name: openssh
+    monitor_pidfile: "{{ openssh_pidfile_path }}"
