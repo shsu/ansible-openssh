@@ -11,17 +11,6 @@
     - runtime-data
     - openssh
 
-- name: Upload Config | monit | openssh
-  template:
-    src: etc/monit/conf.d/openssh
-    dest: /etc/monit/conf.d/openssh
-  notify: Reload Service | monit
-  tags:
-    - using-monit
-
-- name: Trigger All Callbacks
-  meta: flush_handlers
-
 - name: Configure | openssh | pidfile
   lineinfile:
     state: present
