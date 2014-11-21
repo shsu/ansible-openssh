@@ -1,4 +1,16 @@
 ---
+- name: "Directory Exists | {{ openssh_runtime_root }}"
+  file:
+    state: directory
+    path: "{{ openssh_runtime_root }}"
+    owner: root
+    group: root
+    mode: 0755
+  tags:
+    - directory-structure
+    - runtime-data
+    - openssh
+
 - name: Configure | openssh | pidfile
   lineinfile:
     state: present
