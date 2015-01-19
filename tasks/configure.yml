@@ -1,9 +1,24 @@
 ---
-- name: Configure | openssh | Port
-  lineinfile:
-    state: present
+- name: "Directory Exists | {{ openssh_runtime_root }}"
+  file:
+    state: directory
+    path: "{{ openssh_runtime_root }}"
+    owner: root
+    group: root
+    mode: 0755
+  tags:
+    - directory-structure
+    - runtime-data
+    - openssh
+
+- name: Upload Config | /etc/ssh/sshd_config
+  template:
+    src: etc/ssh/sshd_config
     dest: /etc/ssh/sshd_config
-    regexp: "^Port {{ item }}"
-    line: "Port {{ item }}"
-  with_items: openssh_ports
-  notify: Reload Service | openssh
+    mode: 0644
+    owner: root
+    group: root
+  tags:
+    - configuration
+    - template-configuration
+    - openssh

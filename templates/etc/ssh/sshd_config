@@ -1,0 +1,22 @@
+# {{ ansible_managed }}
+
+PidFile {{ openssh_pidfile_path }}
+
+{% for port in openssh_ports %}
+Port {{ port }}
+{% endfor %}
+
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
+
+Ciphers {{ openssh_ciphers }}
+KexAlgorithms {{ openssh_key_exchange_algorithms }}
+MACs {{ openssh_mac_algorithms }}
+
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+
+AcceptEnv LANG LC_*
+PrintMotd no
+Subsystem sftp /usr/lib/openssh/sftp-server
+UseDNS no

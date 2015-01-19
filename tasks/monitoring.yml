@@ -1,28 +1,7 @@
 ---
-- name: "Directory Exists | {{ openssh_runtime_root }}"
-  file:
-    state: directory
-    path: "{{ openssh_runtime_root }}"
-    owner: root
-    group: root
-    mode: 0755
-  tags:
-    - directory-structure
-    - runtime-data
-    - openssh
-
-- name: Configure | openssh | pidfile
-  lineinfile:
-    state: present
-    dest: /etc/ssh/sshd_config
-    regexp: '^#* *PidFile '
-    line: "PidFile {{ openssh_pidfile_path }}"
-  notify: Reload Service | openssh
-  tags:
-    - pidfile
-    - service
-
 - name: Bounce sshd to write new pidfile.
   service:
     state: restarted
     name: ssh
+  tags:
+    - openssh

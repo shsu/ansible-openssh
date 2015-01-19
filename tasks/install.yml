@@ -6,6 +6,8 @@
   with_items:
     - openssh-client
   when: openssh_client
+  tags:
+    - openssh
 
 - name: Install Packages | openssh-server
   apt:
@@ -14,3 +16,5 @@
   with_items:
     - openssh-server
   when: openssh_server
+  tags:
+    - openssh
