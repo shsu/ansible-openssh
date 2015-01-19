@@ -7,9 +7,9 @@ openssh_pidfile_path: "{{ openssh_runtime_root }}/sshd.pid"
 
 openssh_should_degrade_security_to_accomodate_outdated_clients: no
 
-openssh_ciphers: "chacha20-poly1305@openssh.com,aes256-gcm@openssh.com{{ ',aes256-ctr' if openssh_should_degrade_security_to_accomodate_outdated_clients }}"
+openssh_ciphers: "chacha20-poly1305@openssh.com,aes256-gcm@openssh.com{{ ',aes256-ctr' if openssh_should_degrade_security_to_accomodate_outdated_clients else '' }}"
 openssh_key_exchange_algorithms: 'curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256'
-openssh_mac_algorithms: "hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com{{ ',hmac-sha2-512' if openssh_should_degrade_security_to_accomodate_outdated_clients }}"
+openssh_mac_algorithms: "hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com{{ ',hmac-sha2-512' if openssh_should_degrade_security_to_accomodate_outdated_clients else '' }}"
 
 openssh_ports:
   - 22
