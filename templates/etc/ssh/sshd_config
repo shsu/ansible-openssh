@@ -15,6 +15,7 @@ MACs {{ openssh_mac_algorithms }}
 
 ChallengeResponseAuthentication no
 PasswordAuthentication no
+UsePAM yes
 
 AcceptEnv LANG LC_*
 PrintMotd no

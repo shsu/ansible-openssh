@@ -5,7 +5,7 @@ openssh_server: no
 openssh_runtime_root: "{{ runtime_root }}/openssh"
 openssh_pidfile_path: "{{ openssh_runtime_root }}/sshd.pid"
 
-openssh_should_degrade_security_to_accomodate_outdated_clients: no
+openssh_should_degrade_security_to_accomodate_outdated_clients: yes
 
 openssh_ciphers: "chacha20-poly1305@openssh.com,aes256-gcm@openssh.com{{ ',aes256-ctr' if openssh_should_degrade_security_to_accomodate_outdated_clients else '' }}"
 openssh_key_exchange_algorithms: 'curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256'
