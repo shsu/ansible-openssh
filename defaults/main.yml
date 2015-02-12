@@ -2,8 +2,8 @@
 openssh_client: no
 openssh_server: no
 
-openssh_runtime_root: "{{ runtime_root | default('/var/run') }}/openssh"
-openssh_pidfile_path: "{{ openssh_runtime_root }}/sshd.pid"
+openssh_runtime_root: "{{ runtime_root | default('/var/run') }}/ssh"
+openssh_pidfile_path: "{{ openssh_runtime_root }}/ssh.pid"
 
 openssh_should_degrade_security_to_accomodate_outdated_clients: yes
 

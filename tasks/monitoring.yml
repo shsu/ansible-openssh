@@ -1,7 +1,0 @@
----
-- name: Bounce sshd to write new pidfile.
-  service:
-    state: restarted
-    name: ssh
-  tags:
-    - openssh
