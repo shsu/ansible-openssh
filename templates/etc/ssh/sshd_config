@@ -9,9 +9,9 @@ Port {{ port }}
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_rsa_key
 
-Ciphers {{ openssh_ciphers }}
-KexAlgorithms {{ openssh_key_exchange_algorithms }}
-MACs {{ openssh_mac_algorithms }}
+Ciphers {{ openssh_ciphers | join(',') }}
+KexAlgorithms {{ openssh_key_exchange_algorithms | join(',') }}
+MACs {{ openssh_mac_algorithms | join(',') }}
 
 ChallengeResponseAuthentication no
 PasswordAuthentication no
