@@ -6,7 +6,7 @@ openssh_ports:
 openssh_runtime_root: "{{ runtime_root | default('/var/run') }}/ssh"
 openssh_pidfile_path: "{{ openssh_runtime_root }}/ssh.pid"
 
-openssh_should_degrade_security_to_accomodate_outdated_clients: yes
+openssh_should_degrade_security_to_accomodate_outdated_clients: no
 openssh_ciphers:
   - chacha20-poly1305@openssh.com
   - aes256-gcm@openssh.com
