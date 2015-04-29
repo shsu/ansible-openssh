@@ -18,10 +18,3 @@
   when: openssh_server
   tags:
     - openssh
-
-- name: Bounce sshd to write new pidfile.
-  service:
-    state: restarted
-    name: ssh
-  tags:
-    - openssh
