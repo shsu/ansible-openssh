@@ -2,6 +2,6 @@
 - name: Reload Service | openssh
   service:
     state: reloaded
-    name: openssh
+    name: ssh
   tags:
     - disruptive
