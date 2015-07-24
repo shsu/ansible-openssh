@@ -17,6 +17,9 @@ ChallengeResponseAuthentication no
 PasswordAuthentication no
 UsePAM yes
 
+# Brute force bug
+KbdInteractiveAuthentication no
+
 AcceptEnv LANG LC_*
 PrintMotd no
 Subsystem sftp /usr/lib/openssh/sftp-server
