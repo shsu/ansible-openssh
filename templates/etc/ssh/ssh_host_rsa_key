@@ -1,1 +1,1 @@
-{{ openssh_ssh_host_rsa_private }}
+{{ openssh_ssh_host_rsa_private[role] }}
