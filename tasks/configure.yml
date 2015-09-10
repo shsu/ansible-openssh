@@ -31,6 +31,7 @@
     owner: root
     group: root
   when: openssh_ssh_host_ed25519_private is defined
+  notify: Reload Service | openssh
   tags:
     - openssh
 
@@ -42,6 +43,7 @@
     owner: root
     group: root
   when: openssh_ssh_host_rsa_private is defined
+  notify: Reload Service | openssh
   tags:
     - openssh
 
@@ -53,6 +55,7 @@
     owner: root
     group: root
   when: openssh_ssh_host_ed25519_public is defined
+  notify: Reload Service | openssh
   tags:
     - openssh
 
@@ -64,5 +67,6 @@
     owner: root
     group: root
   when: openssh_ssh_host_rsa_public is defined
+  notify: Reload Service | openssh
   tags:
     - openssh
