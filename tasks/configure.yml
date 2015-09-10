@@ -22,3 +22,47 @@
     - configuration
     - template-configuration
     - openssh
+
+- name: "Upload Ed25519 Private Host Keys | /etc/ssh/ssh_host_ed25519_key"
+  template:
+    src: "etc/ssh/ssh_host_ed25519_key"
+    dest: "/etc/ssh/ssh_host_ed25519_key"
+    mode: 0600
+    owner: root
+    group: root
+  when: openssh_ssh_host_ed25519_private is defined
+  tags:
+    - openssh
+
+- name: "Upload RSA Private Host Key | /etc/ssh/ssh_host_rsa_key"
+  template:
+    src: "etc/ssh/ssh_host_rsa_key"
+    dest: "/etc/ssh/ssh_host_rsa_key"
+    mode: 0600
+    owner: root
+    group: root
+  when: openssh_ssh_host_rsa_private is defined
+  tags:
+    - openssh
+
+- name: "Upload Ed25519 Public Host Keys | /etc/ssh/ssh_host_ed25519_key.pub"
+  template:
+    src: "etc/ssh/ssh_host_ed25519_key.pub"
+    dest: "/etc/ssh/ssh_host_ed25519_key.pub"
+    mode: 0644
+    owner: root
+    group: root
+  when: openssh_ssh_host_ed25519_public is defined
+  tags:
+    - openssh
+
+- name: "Upload RSA Public Host Keys | /etc/ssh/ssh_host_rsa_key.pub"
+  template:
+    src: "etc/ssh/ssh_host_rsa_key.pub"
+    dest: "/etc/ssh/ssh_host_rsa_key.pub"
+    mode: 0644
+    owner: root
+    group: root
+  when: openssh_ssh_host_rsa_public is defined
+  tags:
+    - openssh
