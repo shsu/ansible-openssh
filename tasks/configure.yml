@@ -33,8 +33,8 @@
   when: "{{ item.when }}"
   notify: Reload Service | openssh
   with_items:
-    - { file: etc/ssh/ssh_host_rsa_key,         mode: 0600, when: "openssh_ssh_host['rsa'][openssh_role][environment_tier]['private'] is defined" }
-    - { file: etc/ssh/ssh_host_rsa_key.pub,     mode: 0600, when: "openssh_ssh_host['rsa'][openssh_role][environment_tier]['public'] is defined" }
+    - { file: etc/ssh/ssh_host_rsa_key,         mode: "0600", when: "openssh_ssh_host['rsa'][openssh_role][environment_tier]['private'] is defined" }
+    - { file: etc/ssh/ssh_host_rsa_key.pub,     mode: "0600", when: "openssh_ssh_host['rsa'][openssh_role][environment_tier]['public'] is defined" }
     - { file: etc/ssh/ssh_host_ed25519_key,     mode: 0600, when: "openssh_ssh_host['ed25519'][openssh_role][environment_tier]['private'] is defined" }
     - { file: etc/ssh/ssh_host_ed25519_key.pub, mode: 0600, when: "openssh_ssh_host['ed25519'][openssh_role][environment_tier]['public'] is defined" }
   tags:
