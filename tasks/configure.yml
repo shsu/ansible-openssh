@@ -23,50 +23,19 @@
     - template-configuration
     - openssh
 
-- name: "Upload Ed25519 Private Host Keys | /etc/ssh/ssh_host_ed25519_key"
+- name: "Upload Host Keys | /etc/ssh/{{ item.file }}"
   template:
-    src: "etc/ssh/ssh_host_ed25519_key"
-    dest: "/etc/ssh/ssh_host_ed25519_key"
-    mode: 0600
+    src: "{{ item.file }}"
+    dest: "/{{ item.file }}"
+    mode: "{{ item.mode }}"
     owner: root
     group: root
-  when: openssh_ssh_host['ed25519'][openssh_role][environment_tier]['private'] is defined
+  when: "{{ item.when }}"
   notify: Reload Service | openssh
-  tags:
-    - openssh
-
-- name: "Upload RSA Private Host Key | /etc/ssh/ssh_host_rsa_key"
-  template:
-    src: "etc/ssh/ssh_host_rsa_key"
-    dest: "/etc/ssh/ssh_host_rsa_key"
-    mode: 0600
-    owner: root
-    group: root
-  when: openssh_ssh_host['rsa'][openssh_role][environment_tier]['private'] is defined
-  notify: Reload Service | openssh
-  tags:
-    - openssh
-
-- name: "Upload Ed25519 Public Host Keys | /etc/ssh/ssh_host_ed25519_key.pub"
-  template:
-    src: "etc/ssh/ssh_host_ed25519_key.pub"
-    dest: "/etc/ssh/ssh_host_ed25519_key.pub"
-    mode: 0644
-    owner: root
-    group: root
-  when: openssh_ssh_host['ed25519'][openssh_role][environment_tier]['public'] is defined
-  notify: Reload Service | openssh
-  tags:
-    - openssh
-
-- name: "Upload RSA Public Host Keys | /etc/ssh/ssh_host_rsa_key.pub"
-  template:
-    src: "etc/ssh/ssh_host_rsa_key.pub"
-    dest: "/etc/ssh/ssh_host_rsa_key.pub"
-    mode: 0644
-    owner: root
-    group: root
-  when: openssh_ssh_host['rsa'][openssh_role][environment_tier]['public'] is defined
-  notify: Reload Service | openssh
+  with_items:
+    - { file: etc/ssh/ssh_host_rsa_key,         mode: 0600, when: openssh_ssh_host['rsa'][openssh_role][environment_tier]['private'] is defined }
+    - { file: etc/ssh/ssh_host_rsa_key.pub,     mode: 0600, when: openssh_ssh_host['rsa'][openssh_role][environment_tier]['public'] is defined }
+    - { file: etc/ssh/ssh_host_ed25519_key,     mode: 0600, when: openssh_ssh_host['ed25519'][openssh_role][environment_tier]['private'] is defined }
+    - { file: etc/ssh/ssh_host_ed25519_key.pub, mode: 0600, when: openssh_ssh_host['ed25519'][openssh_role][environment_tier]['public'] is defined }
   tags:
     - openssh
