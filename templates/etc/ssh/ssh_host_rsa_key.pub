@@ -1,1 +1,1 @@
-{{ openssh_ssh_host_rsa_public }}
+{{ openssh_ssh_host['rsa'][openssh_role][environment_tier]['public'] }}

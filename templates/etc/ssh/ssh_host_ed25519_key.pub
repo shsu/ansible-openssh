@@ -1,1 +1,1 @@
-{{ openssh_ssh_host_ed25519_public }}
+{{ openssh_ssh_host['ed25519'][openssh_role][environment_tier]['public'] }}
