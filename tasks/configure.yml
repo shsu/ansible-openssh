@@ -42,7 +42,7 @@
     mode: 0600
     owner: root
     group: root
-  when: openssh_ssh_host_rsa_private[openssh_role][environment_tier] is defined
+  when: "openssh_ssh_host_rsa_private['{{ openssh_role }}']['{{ environment_tier}}'] is defined"
   notify: Reload Service | openssh
   tags:
     - openssh
