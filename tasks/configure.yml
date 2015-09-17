@@ -23,7 +23,7 @@
     - template-configuration
     - openssh
 
-- name: "Upload Host Keys | /etc/ssh/{{ item.file }}"
+- name: "Upload Private Host Keys | /etc/ssh/{{ item.file }}"
   template:
     src: "{{ item.file }}"
     dest: "/{{ item.file }}"
@@ -34,13 +34,11 @@
   notify: Reload Service | openssh
   with_items:
     - { file: etc/ssh/ssh_host_rsa_key,         when: "openssh_ssh_host['rsa'][openssh_role][environment_tier]['private'] is defined" }
-    - { file: etc/ssh/ssh_host_rsa_key.pub,     when: "openssh_ssh_host['rsa'][openssh_role][environment_tier]['public'] is defined" }
     - { file: etc/ssh/ssh_host_ed25519_key,     when: "openssh_ssh_host['ed25519'][openssh_role][environment_tier]['private'] is defined" }
-    - { file: etc/ssh/ssh_host_ed25519_key.pub, when: "openssh_ssh_host['ed25519'][openssh_role][environment_tier]['public'] is defined" }
   tags:
     - openssh
 
-- name: "Upload Host Keys | /etc/ssh/{{ item.file }}"
+- name: "Upload Public Host Keys | /etc/ssh/{{ item.file }}"
   template:
     src: "{{ item.file }}"
     dest: "/{{ item.file }}"
@@ -50,9 +48,7 @@
   when: "{{ item.when }}"
   notify: Reload Service | openssh
   with_items:
-    - { file: etc/ssh/ssh_host_rsa_key,         when: "openssh_ssh_host['rsa'][openssh_role][environment_tier]['private'] is defined" }
     - { file: etc/ssh/ssh_host_rsa_key.pub,     when: "openssh_ssh_host['rsa'][openssh_role][environment_tier]['public'] is defined" }
-    - { file: etc/ssh/ssh_host_ed25519_key,     when: "openssh_ssh_host['ed25519'][openssh_role][environment_tier]['private'] is defined" }
     - { file: etc/ssh/ssh_host_ed25519_key.pub, when: "openssh_ssh_host['ed25519'][openssh_role][environment_tier]['public'] is defined" }
   tags:
     - openssh
