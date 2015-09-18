@@ -46,6 +46,18 @@ Example Playbook
            openssh_server: yes
            openssh_client: yes
 
+
+Static Host Key
+----------------
+           openssh_ssh_host:
+             rsa:
+               application:
+                 development:
+                   public: |
+                     REDACT
+                   private: |
+                     REDACT
+
 License
 -------
 [MIT](https://tldrlegal.com/license/mit-license)

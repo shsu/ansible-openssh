@@ -18,6 +18,7 @@
     mode: 0644
     owner: root
     group: root
+  notify: Reload Service | openssh
   tags:
     - configuration
     - template-configuration
