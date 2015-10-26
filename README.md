@@ -30,9 +30,12 @@ Tunables
 * ```openssh_pidfile_path``` (string) - Path for pidfile?
 
 * ```openssh_should_degrade_security_to_accomodate_outdated_clients``` (boolean) - Degrade Cipher and MAC selection to accomodate archaic SSH versions (prior to 6.1)
-* ```openssh_ciphers``` (list) - Ciphers to allow
-* ```openssh_key_exchange_algorithms``` (list) - Key Exchange Algorithms to allow
-* ```openssh_mac_algorithms``` (list) - MAC Algorithms to allow
+* ```openssh_overload_ciphers``` - (list) ciphers to append to openssh_default_ciphers
+* ```openssh_overload_key_exchange_algorithms``` - (list) key exchanges to append to openssh_default_key_exchange_algorithms
+* ```openssh_overload_mac_algorithms``` - (list) message integrety checking to append to openssh_default_mac_algorithms
+* ```openssh_default_ciphers``` (list) - Ciphers to allow (prefer openssh_overload_key_exchange_algorithms when possible)
+* ```openssh_default_key_exchange_algorithms``` (list) - Key Exchange Algorithms to allow (prefer openssh_overload_ciphers when possible)
+* ```openssh_default_mac_algorithms``` (list) - MAC Algorithms to allow (prefer openssh_overload_mac_algorithms when possible)
 
 Dependencies
 ------------
