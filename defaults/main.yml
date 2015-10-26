@@ -20,13 +20,13 @@ openssh_default_mac_algorithms:
   - umac-128-etm@openssh.com
   - "{{ 'hmac-sha2-512' if openssh_should_degrade_security_to_accomodate_outdated_clients else 'JINJA_TYPE_COERCION_WORKAROUND' }}"
 
-openssh_override_ciphers: []
-openssh_override_key_exchange_algorithms: []
-openssh_override_mac_algorithms: []
+openssh_overload_ciphers: []
+openssh_overload_key_exchange_algorithms: []
+openssh_overload_mac_algorithms: []
 
-openssh_ciphers: "{{ openssh_default_ciphers | union (openssh_override_ciphers) }}"
-openssh_key_exchange_algorithms: "{{ openssh_default_key_exchange_algorithms | union (openssh_override_key_exchange_algorithms) }}"
-openssh_mac_algorithms: "{{ openssh_default_mac_algorithms | union (openssh_override_mac_algorithms) }}"
+openssh_ciphers: "{{ openssh_default_ciphers | union (openssh_overload_ciphers) }}"
+openssh_key_exchange_algorithms: "{{ openssh_default_key_exchange_algorithms | union (openssh_overload_key_exchange_algorithms) }}"
+openssh_mac_algorithms: "{{ openssh_default_mac_algorithms | union (openssh_overload_mac_algorithms) }}"
 
 openssh_host_keys:
   - /etc/ssh/ssh_host_ed25519_key
