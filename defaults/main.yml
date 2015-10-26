@@ -22,7 +22,8 @@ openssh_mac_algorithms:
 
 openssh_override_ciphers: []
 
-openssh_ciphers: "{{ openssh_default_ciphers.update(openssh_override_ciphers) }}{{ openssh_default_ciphers }}"
+#openssh_ciphers: "{{ openssh_default_ciphers.update(openssh_override_ciphers) }}{{ openssh_default_ciphers }}"
+openssh_ciphers: "{{ openssh_default_ciphers | union (openssh_override_ciphers) }}"
 
 openssh_host_keys:
   - /etc/ssh/ssh_host_ed25519_key
