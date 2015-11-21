@@ -42,7 +42,7 @@ Example Playbook
 ----------------
     - hosts: servers
       roles:
-         - role: colstrom.openssh
+         - role: shsu.openssh
            openssh_server: yes
            openssh_client: yes
 
@@ -54,3 +54,4 @@ Contributors
 ------------
 * [Chris Olstrom](https://colstrom.github.io/) | [e-mail](mailto:chris@olstrom.com) | [Twitter](https://twitter.com/ChrisOlstrom)
 * Aaron Pederson
+* [Steven Hsu](https://www.stevenhsu.ca)
