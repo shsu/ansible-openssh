@@ -19,5 +19,7 @@ UsePAM yes
 
 AcceptEnv LANG LC_*
 PrintMotd no
-Subsystem sftp /usr/lib/openssh/sftp-server
+Subsystem sftp internal-sftp
 UseDNS no
+
+ClientAliveInterval 120
