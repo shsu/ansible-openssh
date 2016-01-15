@@ -11,7 +11,7 @@
     - runtime-data
     - openssh
 
-- name: Upload Config | /etc/ssh/sshd_config
+- name: Upload Server Config | /etc/ssh/sshd_config
   template:
     src: etc/ssh/sshd_config
     dest: /etc/ssh/sshd_config
@@ -19,6 +19,19 @@
     owner: root
     group: root
   notify: Reload Service | openssh
+  tags:
+    - configuration
+    - template-configuration
+    - openssh
+
+- name: Upload Client Config | /etc/ssh/ssh_config
+  template:
+    src: etc/ssh/ssh_config
+    dest: /etc/ssh/ssh_config
+    mode: 0644
+    owner: root
+    group: root
+  when: openssh_client
   tags:
     - configuration
     - template-configuration
