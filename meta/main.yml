@@ -1,8 +1,8 @@
 ---
 dependencies:
   - role: telusdigital.apt-repository
-    repository_key: "0xf753d4810762518e"
-    repository_url: "deb http://ppa.launchpad.net/w-rouesnel/openssh-hpn/ubuntu {{ ansible_distribution_release }} main"
+    repository_key: "0xc0c275ea512865011ba2b355eb93c836eddd560e"
+    repository_url: "deb http://ppa.launchpad.net/m-gehre/openssh-hpn/ubuntu/ {{ ansible_distribution_release }} main"
 galaxy_info:
   author: "Chris Olstrom"
   company: "TELUS digital"
