@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe 'ansible-openssh::default' do
 
   describe package('openssh-client') do
