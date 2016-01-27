@@ -1,0 +1,11 @@
+---
+- hosts: test-kitchen
+  remote_user: root
+
+  roles:
+    - role: ansible-openssh
+      openssh_client: yes
+      openssh_server: yes
+      project: travis
+      enviroment_tier: travis
+      domain: travis
