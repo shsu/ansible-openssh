@@ -6,8 +6,6 @@
     - role: ansible-openssh
       openssh_client: yes
       openssh_server: yes
-      openssh_host_keys:
-        - /etc/ssh/ssh_host_rsa_key
       project: travis
       enviroment_tier: travis
       domain: travis

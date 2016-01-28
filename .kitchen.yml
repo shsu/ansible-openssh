@@ -7,6 +7,7 @@ provisioner:
   name: ansible_playbook
   hosts: test-kitchen
   requirements_path: dependencies.yml
+  ansible_version: 1.9.4
 
 platforms:
   - name: ubuntu-14.04
