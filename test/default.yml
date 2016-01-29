@@ -4,11 +4,14 @@
 
   roles:
     - role: ansible-openssh
-      openssh_role: travis
       openssh_client: yes
       openssh_server: yes
-      openssh_host_keys:
-        - /etc/ssh/ssh_host_rsa_key
+      openssh_ssh_host:
+        rsa:
+        application:
+        development:
+        public: | REDACT
+        private:| REDACT
       project: travis
       enviroment_tier: travis
       domain: travis
