@@ -44,7 +44,7 @@
     mode: 0600
     owner: root
     group: root
-  when: "{{ item.when }}"
+  #when: "{{ item.when }}"
   notify: Reload Service | openssh
   with_items:
     - { file: etc/ssh/ssh_host_rsa_key,         when: "openssh_ssh_host['rsa'][openssh_role][environment_tier]['private'] is defined" }
@@ -59,7 +59,7 @@
     mode: 0644
     owner: root
     group: root
-  when: "{{ item.when }}"
+  #when: "{{ item.when }}"
   notify: Reload Service | openssh
   with_items:
     - { file: etc/ssh/ssh_host_rsa_key.pub,     when: "openssh_ssh_host['rsa'][openssh_role][environment_tier]['public'] is defined" }
