@@ -6,12 +6,6 @@
     - role: ansible-openssh
       openssh_client: yes
       openssh_server: yes
-      openssh_ssh_host:
-        rsa:
-        application:
-        development:
-        public: | REDACT
-        private:| REDACT
       project: travis
       enviroment_tier: travis
       domain: travis
