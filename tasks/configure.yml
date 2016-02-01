@@ -44,7 +44,7 @@
     mode: 0600
     owner: root
     group: root
-  when: openssh_ssh_host is not False
+  when: openssh_ssh_host is defined
   notify: Reload Service | openssh
   with_items:
     - etc/ssh/ssh_host_rsa_key
@@ -59,7 +59,7 @@
     mode: 0644
     owner: root
     group: root
-  when: openssh_ssh_host is not False
+  when: openssh_ssh_host is defined
   notify: Reload Service | openssh
   with_items:
     - etc/ssh/ssh_host_rsa_key.pub
