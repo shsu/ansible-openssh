@@ -19,12 +19,12 @@ describe 'ansible-openssh::default' do
     it { should be_mode 755 }
   end
 
-  describe file('etc/ssh/sshd_config') do
+  describe file('/etc/ssh/sshd_config') do
     it { should be_owned_by('root') }
     it { should be_owned_by('root') }
   end
 
-  describe file('etc/ssh/sshd_config') do
+  describe file('/etc/ssh/sshd_config') do
     it { should be_mode 644 }
   end
 
