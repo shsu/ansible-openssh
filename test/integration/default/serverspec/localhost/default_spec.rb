@@ -16,6 +16,7 @@ describe 'ansible-openssh::default' do
 
   describe file('/var/run/ssh') do
     it { should be_directory }
+    it { should be_mode 0755 }
   end
 
   describe file('etc/ssh/sshd_config') do
