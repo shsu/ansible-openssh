@@ -1,14 +1,13 @@
 require 'spec_helper'
 
-
 describe 'ansible-openssh::default' do
 
-  describe package('openssh-client') do
-    it {should be_installed.by('apt') }
+  describe package('openssh-server') do
+    it { should be_installed.by('apt') }
   end
 
-  describe package('openssh-server') do
-    it {should be_installed.by('apt') }
+  describe package('openssh-client') do
+    it { should be_installed.by('apt') }
   end
 
   describe port(22) do
