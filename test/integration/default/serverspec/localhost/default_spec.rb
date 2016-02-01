@@ -20,8 +20,8 @@ describe 'ansible-openssh::default' do
   end
 
   describe file('etc/ssh/sshd_config') do
-    it { should be_writable.by('root') }
-    it { should be_writable.by('root') }
+    it { should be_owned_by('root') }
+    it { should be_owned_by('root') }
   end
 
   describe file('etc/ssh/sshd_config') do
@@ -29,8 +29,8 @@ describe 'ansible-openssh::default' do
   end
 
   describe file('/etc/ssh/ssh_config') do
-    it { should be_writable.by('root') }
-    it { should be_writable.by('root') }
+    it { should be_owned_by('root') }
+    it { should be_owned_by('root') }
   end
 
    describe file('/etc/ssh/ssh_config') do
