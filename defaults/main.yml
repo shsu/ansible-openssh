@@ -8,7 +8,6 @@ openssh_should_degrade_security_to_accomodate_outdated_clients: no
 openssh_default_ciphers:
   - chacha20-poly1305@openssh.com
   - aes256-gcm@openssh.com
-  - "{{ 'aes256-ctr' if openssh_should_degrade_security_to_accomodate_outdated_clients else 'JINJA_TYPE_COERCION_WORKAROUND' }}"
 openssh_default_key_exchange_algorithms:
   - curve25519-sha256@libssh.org
   - diffie-hellman-group-exchange-sha256
