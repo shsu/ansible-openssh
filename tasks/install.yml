@@ -2,7 +2,7 @@
 - name: Install Packages | openssh-client
   apt:
     state: latest
-    pkg: "{{ item }}"
+    name: "{{ item }}"
   with_items:
     - openssh-client
   when: openssh_client
@@ -12,7 +12,7 @@
 - name: Install Packages | openssh-server
   apt:
     state: latest
-    pkg: "{{ item }}"
+    name: "{{ item }}"
   with_items:
     - openssh-server
   when: openssh_server
