@@ -1,6 +1,5 @@
 ---
-- name: Install Packages | openssh-client
-  apt:
+- apt:
     state: latest
     name: "{{ item }}"
   with_items:
@@ -9,8 +8,7 @@
   tags:
     - openssh
 
-- name: Install Packages | openssh-server
-  apt:
+- apt:
     state: latest
     name: "{{ item }}"
   with_items:
