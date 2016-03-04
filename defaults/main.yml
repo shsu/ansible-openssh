@@ -4,7 +4,6 @@ openssh_server: no
 openssh_ports:
   - 22
 
-openssh_should_degrade_security_to_accomodate_outdated_clients: no
 openssh_default_ciphers:
   - chacha20-poly1305@openssh.com
   - aes256-gcm@openssh.com
