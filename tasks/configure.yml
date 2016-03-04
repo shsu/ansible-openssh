@@ -8,7 +8,6 @@
   notify: service | ssh | restart
   tags:
     - configuration
-    - template-configuration
     - openssh
 
 - name: Upload Client Config | /etc/ssh/ssh_config
