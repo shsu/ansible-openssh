@@ -38,7 +38,7 @@ Tunables
 
 Dependencies
 ------------
-* [telusdigital.apt-repository](https://github.com/telusdigital/ansible-apt-repository/)
+* None
 
 Example Playbook
 ----------------
