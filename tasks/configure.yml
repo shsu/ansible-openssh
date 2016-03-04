@@ -10,8 +10,7 @@
     - configure
     - openssh
 
-- name: Upload Client Config | /etc/ssh/ssh_config
-  template:
+- template:
     src: etc/ssh/ssh_config
     dest: /etc/ssh/ssh_config
     mode: 0644
@@ -23,8 +22,7 @@
     - template-configuration
     - openssh
 
-- name: "Upload Private Host Keys | /etc/ssh/{{ item }}"
-  template:
+- template:
     src: "{{ item }}"
     dest: "/{{ item }}"
     mode: 0600
@@ -38,8 +36,7 @@
   tags:
     - openssh
 
-- name: "Upload Public Host Keys | /etc/ssh/{{ item }}"
-  template:
+- template:
     src: "{{ item }}"
     dest: "/{{ item }}"
     mode: 0644
