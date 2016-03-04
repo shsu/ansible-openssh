@@ -1,6 +1,5 @@
 ---
-- name: Upload Config | /etc/ssh/sshd_config
-  template:
+- template:
     src: etc/ssh/sshd_config
     dest: /etc/ssh/sshd_config
     mode: 0644
