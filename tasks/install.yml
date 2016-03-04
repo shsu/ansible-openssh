@@ -6,6 +6,7 @@
     - openssh-client
   when: openssh_client
   tags:
+    - install
     - openssh
 
 - apt:
@@ -15,4 +16,5 @@
     - openssh-server
   when: openssh_server
   tags:
+    - install
     - openssh
