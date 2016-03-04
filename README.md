@@ -27,7 +27,6 @@ Tunables
 * ```openssh_server``` (boolean) - Install as server?
 * ```openssh_ports``` (list) - Ports to listen on
 * ```openssh_runtime_root``` (string) - Path for runtime files?
-* ```openssh_pidfile_path``` (string) - Path for pidfile?
 
 * ```openssh_should_degrade_security_to_accomodate_outdated_clients``` (boolean) - Degrade Cipher and MAC selection to accomodate archaic SSH versions (prior to 6.1)
 * ```openssh_append_ciphers``` - (list) ciphers to append to openssh_default_ciphers
