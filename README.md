@@ -4,12 +4,12 @@
 
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
-Description
------------
+## Description
+
 OpenSSH is a suite of security-related network-level utilities based on the SSH protocol, which help to secure network communications via the encryption of network traffic over multiple authentication methods and by providing secure tunneling capabilities.
 
-Tunables
---------
+## Tunables
+
 * ```openssh_client``` (boolean) - Install as client?
 * ```openssh_server``` (boolean) - Install as server?
 * ```openssh_ports``` (list) - Ports to listen on
@@ -20,21 +20,18 @@ Tunables
 * ```openssh_default_key_exchange_algorithms``` (list) - Key Exchange Algorithms to allow (prefer openssh_append_ciphers when possible)
 * ```openssh_default_mac_algorithms``` (list) - MAC Algorithms to allow (prefer openssh_append_mac_algorithms when possible)
 
-Dependencies
-------------
+## Dependencies
+
 * None
 
-Example Playbook
-----------------
+## Example Playbook
     - hosts: servers
       roles:
          - role: telusdigital.openssh
            openssh_server: yes
            openssh_client: yes
 
-
-Static Host Key
-----------------
+## Static Host Key
            openssh_ssh_host:
              rsa:
                application:
@@ -44,11 +41,11 @@ Static Host Key
                    private: |
                      REDACT
 
-License
--------
+## License
+
 [MIT](https://tldrlegal.com/license/mit-license)
 
-Contributors
-------------
+## Contributors
+
 * [Chris Olstrom](https://colstrom.github.io/) | [e-mail](mailto:chris@olstrom.com) | [Twitter](https://twitter.com/ChrisOlstrom)
 * Aaron Pederson
