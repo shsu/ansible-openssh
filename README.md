@@ -13,7 +13,6 @@ Tunables
 * ```openssh_client``` (boolean) - Install as client?
 * ```openssh_server``` (boolean) - Install as server?
 * ```openssh_ports``` (list) - Ports to listen on
-
 * ```openssh_append_ciphers``` - (list) ciphers to append to openssh_default_ciphers
 * ```openssh_append_key_exchange_algorithms``` - (list) key exchanges to append to openssh_default_key_exchange_algorithms
 * ```openssh_append_mac_algorithms``` - (list) message integrety checking to append to openssh_default_mac_algorithms
