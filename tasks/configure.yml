@@ -54,3 +54,14 @@
     - etc/ssh/ssh_host_ed25519_key.pub
   tags:
     - openssh
+
+- lineinfile:
+    state: present
+    dest: /etc/sudoers.d/fix-ssh-agent
+    regexp: '^Defaults env_keep\+\=SSH_AUTH_SOCK'
+    line: 'Defaults env_keep+=SSH_AUTH_SOCK'
+    create: yes
+  tags:
+    - configure
+    - openssh
+    - sudo
