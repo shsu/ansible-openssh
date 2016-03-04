@@ -1,7 +1,22 @@
 ---
-- name: Reload Service | openssh
+- include: intuitive-naming.yml
+
+- name: service | ssh | started
   service:
-    state: reloaded
     name: ssh
-  tags:
-    - disruptive
+    state: started
+
+- name: service | ssh | stopped
+  service:
+    name: ssh
+    state: stopped
+
+- name: service | ssh | restarted
+  service:
+    name: ssh
+    state: restarted
+
+- name: service | ssh | reloaded
+  service:
+    name: ssh
+    state: reloaded
