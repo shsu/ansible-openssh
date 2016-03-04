@@ -3,7 +3,6 @@ openssh_client: no
 openssh_server: no
 openssh_ports:
   - 22
-openssh_runtime_root: "{{ runtime_root | default('/var/run') }}/ssh"
 
 openssh_should_degrade_security_to_accomodate_outdated_clients: no
 openssh_default_ciphers:
