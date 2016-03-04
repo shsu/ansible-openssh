@@ -7,7 +7,7 @@
     group: root
   notify: service | ssh | restart
   tags:
-    - configuration
+    - configure
     - openssh
 
 - name: Upload Client Config | /etc/ssh/ssh_config
