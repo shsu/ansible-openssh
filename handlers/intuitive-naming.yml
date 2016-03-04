@@ -1,0 +1,20 @@
+---
+- name: service | openssh | started
+  service:
+    name: ssh
+    state: started
+
+- name: service | openssh | stopped
+  service:
+    name: ssh
+    state: stopped
+
+- name: service | openssh | restarted
+  service:
+    name: ssh
+    state: restarted
+
+- name: service | openssh | reloaded
+  service:
+    name: ssh
+    state: reloaded
