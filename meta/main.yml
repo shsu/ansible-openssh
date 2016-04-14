@@ -1,8 +1,5 @@
 ---
-dependencies:
-  - role: colstrom.apt-repository
-    repository_key: "0xf753d4810762518e"
-    repository_url: "deb http://ppa.launchpad.net/w-rouesnel/openssh-hpn/ubuntu {{ ansible_distribution_release }} main"
+dependencies: []
 galaxy_info:
   author: "Steven Hsu"
   description: "OpenSSH is a suite of security-related network-level utilities based on the SSH protocol, which help to secure network communications via the encryption of network traffic over multiple authentication methods and by providing secure tunneling capabilities."

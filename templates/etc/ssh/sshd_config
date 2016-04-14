@@ -1,13 +1,12 @@
 # {{ ansible_managed }}
 
-PidFile {{ openssh_pidfile_path }}
-
 {% for port in openssh_ports %}
 Port {{ port }}
 {% endfor %}
 
-HostKey /etc/ssh/ssh_host_ed25519_key
-HostKey /etc/ssh/ssh_host_rsa_key
+{% for host_key in openssh_host_keys %}
+HostKey {{ host_key }}
+{% endfor %}
 
 Ciphers {{ openssh_ciphers | reject('upper') | join(',') }}
 KexAlgorithms {{ openssh_key_exchange_algorithms | reject('upper') | join(',') }}
@@ -16,6 +15,9 @@ MACs {{ openssh_mac_algorithms | reject('upper') | join(',') }}
 ChallengeResponseAuthentication no
 PasswordAuthentication no
 UsePAM yes
+
+# Brute force bug
+KbdInteractiveAuthentication no
 
 AcceptEnv LANG LC_*
 PrintMotd no
